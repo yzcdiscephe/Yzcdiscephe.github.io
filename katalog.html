@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YZC Renk Kataloğu</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 20px; text-align: center; }
+        h1 { color: #002d5b; text-transform: uppercase; margin-bottom: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .color-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .swatch { height: 120px; border-radius: 5px; margin-bottom: 10px; border: 1px solid #ddd; }
+        .color-name { font-weight: bold; font-size: 0.9em; color: #333; }
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+    <h1 id="katalog-baslik">Ürün Kataloğu</h1>
+    <div class="grid" id="katalog-grid">
+        </div>
+
+    <a href="index.html" style="display:inline-block; margin-top:40px; color:#666;">← Ana Sayfaya Dön</a>
+    <a href="https://wa.me/905303458353" class="wa-float">Fiyat Al: 0530 345 83 53</a>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const tip = urlParams.get('tip');
+        const grid = document.getElementById('katalog-grid');
+        const baslik = document.getElementById('katalog-baslik');
+
+        // Ürün Renk Verileri
+        const renkler = [
+            {isim: "Antrasit Gri", kod: "#383e42"},
+            {isim: "Gümüş Metalik", kod: "#c0c0c0"},
+            {isim: "Altın Meşe", kod: "#966929"},
+            {isim: "İnci Beyazı", kod: "#f5f5f5"},
+            {isim: "Bakır Bronz", kod: "#b87333"},
+            {isim: "Jet Siyah", kod: "#0a0a0a"},
+            {isim: "Modern Füme", kod: "#555555"},
+            {isim: "Krem Bej", kod: "#f5f5dc"}
+        ];
+
+        baslik.innerText = tip === 'yanmaz' ? "🔥 Yanmaz Ürün Kataloğu" : "❄️ Yanar Ürün Kataloğu";
+
+        renkler.forEach(renk => {
+            const card = document.createElement('div');
+            card.className = 'color-card';
+            card.innerHTML = `
+                <div class="swatch" style="background-color: ${renk.kod}"></div>
+                <div class="color-name">${renk.isim}</div>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
