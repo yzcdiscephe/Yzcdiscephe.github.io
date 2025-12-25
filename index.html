@@ -1,111 +1,34 @@
-ü<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YZC DIŞ CEPHE GİYDİRME|Alüminyum Cam Sistemleri</titl
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --gold: #c5a059; --white: #ffffff; }
-        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Poppins', sans-serif; background: #000; overflow: hidden; }
+<div class="siparis-karti" style="max-width: 350px; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border: 1px solid #f0f0f0; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); background: #fff;">
+  
+  <div style="margin-bottom: 25px;">
+    <div style="font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px;">Metrekare Fiyatı</div>
+    <span style="font-size: 32px; font-weight: 800; color: #1a1a1a;">3.500₺</span>
+    <span style="font-size: 18px; color: #444; font-weight: 500;">/ m²</span>
+  </div>
 
-        /* Arka Plan Görseli */
-        header { 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1554435493-93422e8220c8?w=1600'); 
-            background-size: cover; 
-            background-position: center; 
-            text-align: center;
-        }
+  <div style="margin-bottom: 30px;">
+    <button onclick="var p=document.getElementById('renk-paneli'); p.style.display=p.style.display==='block'?'none':'block';" 
+            style="background: #ffffff; border: 2px solid #eee; padding: 12px; border-radius: 10px; cursor: pointer; width: 100%; font-weight: 600; color: #555; transition: 0.3s;">
+      🎨 Renk Seçiniz
+    </button>
+    
+    <div id="renk-paneli" style="display: none; margin-top: 15px; background: #fafafa; padding: 15px; border-radius: 12px; border: 1px solid #eee;">
+      <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;">
+        <span title="Kırmızı" style="background:red; border-radius:50%; width:30px; height:30px; cursor:pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></span>
+        <span title="Mavi" style="background:blue; border-radius:50%; width:30px; height:30px; cursor:pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></span>
+        <span title="Yeşil" style="background:green; border-radius:50%; width:30px; height:30px; cursor:pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></span>
+        <span title="Sarı" style="background:yellow; border-radius:50%; width:30px; height:30px; cursor:pointer; border:1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></span>
+        <span title="Beyaz" style="background:white; border-radius:50%; width:30px; height:30px; cursor:pointer; border:1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></span>
+        <span title="Siyah" style="background:black; border-radius:50%; width:30px; height:30px; cursor:pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.1);"></span>
+      </div>
+    </div>
+  </div>
 
-        .logo { font-size: 3.5em; font-weight: 700; margin: 0; color: var(--white); letter-spacing: 5px; line-height: 1.1; }
-        .logo span { color: var(--gold); }
-        .sub-text { font-size: 0.9em; color: var(--white); letter-spacing: 2px; margin: 20px 0 40px; text-transform: uppercase; opacity: 0.9; padding: 0 10px; }
+  <a href="https://wa.me/905XXXXXXXXXX?text=Merhaba, 3500₺/m2 fiyatlı ürününüz için bilgi alabilir miyim?" 
+     style="background-color: #25D366; color: white; padding: 18px; text-decoration: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="22" style="margin-right: 12px;">
+     Bilgi Al
+  </a>
 
-        .btn-group { display: flex; flex-direction: column; gap: 15px; width: 85%; max-width: 350px; }
-        
-        .main-btn {
-            padding: 20px; 
-            border: 2px solid var(--gold); 
-            color: var(--white);
-            text-decoration: none; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            transition: 0.3s; 
-            background: rgba(0,0,0,0.7); 
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            font-size: 1em;
-        }
-        .main-btn:hover { background: var(--gold); color: #000; }
-
-        /* WhatsApp Butonu */
-        .wa-btn {
-            margin-top: 40px;
-            background: #25d366;
-            color: white;
-            text-decoration: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 10px 20px rgba(37,211,102,0.3);
-        }
-
-        /* Paylaş Butonu */
-        .share-btn {
-            margin-top: 15px;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 0.8em;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        footer { position: absolute; bottom: 20px; color: rgba(255,255,255,0.5); font-size: 0.7em; letter-spacing: 2px; }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1 class="logo">YZC <span>DIŞ CEPHE</span></h1>
-        <p class="sub-text">İzokobant ve Kompozit Kaplama Sistemleri</p>
-        
-        <div class="btn-group">
-            <a href="katalog.html?tip=yanmaz" class="main-btn">🔥 Yanmaz Ürünler</a>
-            <a href="katalog.html?tip=yanar" class="main-btn">❄️ Yanar Ürünler</a>
-        </div>
-
-        <a href="https://wa.me/905303458353" class="wa-btn">
-            <span>💬 WhatsApp: 0530 345 83 53</span>
-        </a>
-
-        <button onclick="siteyiPaylas()" class="share-btn">🔗 Siteyi Paylaş</button>
-
-        <footer>FATİH / İSTANBUL</footer>
-    </header>
-
-    <script>
-    function siteyiPaylas() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'YZC Dış Cephe',
-          text: 'Müteahhitlere özel 3.500 TL dış cephe kaplama fiyatları!',
-          url: window.location.href
-        });
-      }
-    }
-    </script>
-</body>
-</html>
+</div>
 
