@@ -3,19 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YZC DIŞ CEPHE | Lüks Kaplama Sistemleri</title>
+    <title>YZC DIŞ CEPHE | İzokobant ve Kompozit</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root { --gold: #c5a059; --white: #ffffff; }
-        
-        body, html { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%; 
-            font-family: 'Poppins', sans-serif; 
-            background: #000; 
-            overflow: hidden;
-        }
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Poppins', sans-serif; background: #000; overflow: hidden; }
 
         /* Arka Plan Görseli */
         header { 
@@ -29,33 +21,16 @@
             background-size: cover; 
             background-position: center; 
             text-align: center;
-            padding: 0 20px;
         }
 
-        .logo { font-size: clamp(2.5em, 8vw, 4.5em); font-weight: 700; margin: 0; color: var(--white); letter-spacing: 5px; }
+        .logo { font-size: 3.5em; font-weight: 700; margin: 0; color: var(--white); letter-spacing: 5px; line-height: 1.1; }
         .logo span { color: var(--gold); }
-        
-        .sub-text { 
-            font-size: 1em; 
-            color: var(--white); 
-            letter-spacing: 2px; 
-            margin-bottom: 40px; 
-            text-transform: uppercase; 
-            opacity: 0.8; 
-            max-width: 80%;
-        }
+        .sub-text { font-size: 0.9em; color: var(--white); letter-spacing: 2px; margin: 20px 0 40px; text-transform: uppercase; opacity: 0.9; padding: 0 10px; }
 
-        .btn-group { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-            width: 100%; 
-            max-width: 320px; 
-        }
+        .btn-group { display: flex; flex-direction: column; gap: 15px; width: 85%; max-width: 350px; }
         
-        /* Yanar / Yanmaz Butonları */
         .main-btn {
-            padding: 18px; 
+            padding: 20px; 
             border: 2px solid var(--gold); 
             color: var(--white);
             text-decoration: none; 
@@ -63,40 +38,41 @@
             text-transform: uppercase;
             transition: 0.3s; 
             background: rgba(0,0,0,0.7); 
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             border-radius: 8px;
-            font-size: 0.9em;
+            font-size: 1em;
         }
-
-        .main-btn:hover { background: var(--gold); color: #000; transform: translateY(-3px); }
+        .main-btn:hover { background: var(--gold); color: #000; }
 
         /* WhatsApp Butonu */
         .wa-btn {
-            margin-top: 35px;
+            margin-top: 40px;
             background: #25d366;
             color: white;
             text-decoration: none;
             padding: 15px 25px;
             border-radius: 50px;
-            font-weight: 700;
+            font-weight: bold;
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 8px 20px rgba(37,211,102,0.3);
-            font-size: 1em;
-            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(37,211,102,0.3);
         }
 
-        .wa-btn:hover { transform: scale(1.05); background: #1eb954; }
-
-        footer { 
-            position: absolute; 
-            bottom: 20px; 
-            color: rgba(255,255,255,0.5); 
-            font-size: 0.7em; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
+        /* Paylaş Butonu */
+        .share-btn {
+            margin-top: 15px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.8em;
+            cursor: pointer;
+            text-decoration: none;
         }
+
+        footer { position: absolute; bottom: 20px; color: rgba(255,255,255,0.5); font-size: 0.7em; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -106,17 +82,30 @@
         <p class="sub-text">İzokobant ve Kompozit Kaplama Sistemleri</p>
         
         <div class="btn-group">
-            <a href="katalog.html?tip=yanmaz" class="main-btn">🔥 Yanmaz Ürünler (A1)</a>
-            <a href="katalog.html?tip=yanar" class="main-btn">❄️ Yanar Ürünler (Ekonomik)</a>
+            <a href="katalog.html?tip=yanmaz" class="main-btn">🔥 Yanmaz Ürünler</a>
+            <a href="katalog.html?tip=yanar" class="main-btn">❄️ Yanar Ürünler</a>
         </div>
 
-        <a href="https://wa.me/905303458353?text=Merhaba,%20dış%20cephe%20fiyatları%20hakkında%20bilgi%20almak%20istiyorum." class="wa-btn">
+        <a href="https://wa.me/905303458353" class="wa-btn">
             <span>💬 WhatsApp: 0530 345 83 53</span>
         </a>
 
-        <footer>Prestij ve Güvenin Adresi</footer>
+        <button onclick="siteyiPaylas()" class="share-btn">🔗 Siteyi Paylaş</button>
+
+        <footer>FATİH / İSTANBUL</footer>
     </header>
 
+    <script>
+    function siteyiPaylas() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'YZC Dış Cephe',
+          text: 'Müteahhitlere özel 3.500 TL dış cephe kaplama fiyatları!',
+          url: window.location.href
+        });
+      }
+    }
+    </script>
 </body>
 </html>
 
