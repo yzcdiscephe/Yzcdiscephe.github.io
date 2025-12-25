@@ -1,27 +1,92 @@
-<style>
-    .wa-contact-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        background: #25d366;
-        color: white;
-        text-decoration: none;
-        padding: 15px 30px;
-        border-radius: 50px;
-        font-weight: bold;
-        font-size: 1.1em;
-        margin-top: 30px;
-        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-        transition: 0.3s;
-    }
-    .wa-contact-btn:hover {
-        transform: scale(1.05);
-        background: #1eb954;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YZC DIŞ CEPHE | İzokobant ve Kompozit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #c5a059; --white: #ffffff; }
+        
+        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Poppins', sans-serif; background: #000; }
 
-<a href="https://wa.me/905303458353" class="wa-contact-btn">
-    <span>💬 WhatsApp: 0530 345 83 53</span>
-</a>
+        /* Arka Plan Görseli - İzokobant Giydirilmiş Lüks Bina */
+        header { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1554435493-93422e8220c8?w=1600'); 
+            background-size: cover; 
+            background-position: center; 
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .logo { font-size: 4.5em; font-weight: 700; margin: 0; color: var(--white); letter-spacing: 5px; }
+        .logo span { color: var(--gold); }
+        .sub-text { font-size: 1.1em; color: var(--white); letter-spacing: 3px; margin-bottom: 40px; text-transform: uppercase; opacity: 0.9; }
+
+        .btn-group { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 400px; }
+        
+        /* Yanar / Yanmaz Butonları */
+        .main-btn {
+            padding: 20px; 
+            border: 2px solid var(--gold); 
+            color: var(--white);
+            text-decoration: none; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            transition: 0.4s; 
+            background: rgba(0,0,0,0.6); 
+            backdrop-filter: blur(10px);
+            border-radius: 5px;
+            font-size: 1.1em;
+        }
+
+        .main-btn:hover { background: var(--gold); color: #000; transform: translateY(-3px); }
+
+        /* Sadece WhatsApp Butonu */
+        .wa-btn {
+            margin-top: 30px;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(37,211,102,0.3);
+            transition: 0.3s;
+        }
+
+        .wa-btn:hover { transform: scale(1.05); background: #1eb954; }
+
+        footer { position: absolute; bottom: 20px; color: rgba(255,255,255,0.6); font-size: 0.8em; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 class="logo">YZC <span>DIŞ CEPHE</span></h1>
+        <p class="sub-text">İzokobant ve Kompozit Kaplama Sistemleri</p>
+        
+        <div class="btn-group">
+            <a href="katalog.html?tip=yanmaz" class="main-btn">🔥 Yanmaz Ürünler (A1 Sınıfı)</a>
+            <a href="katalog.html?tip=yanar" class="main-btn">❄️ Yanar Ürünler (Ekonomik)</a>
+        </div>
+
+        <a href="https://wa.me/905303458353?text=Merhaba,%20dış%20cephe%20kaplama%20hakkında%20bilgi%20almak%20istiyorum." class="wa-btn">
+            <span>WhatsApp: 0530 345 83 53</span>
+        </a>
+
+        <footer>PRESTİJ VE GÜVENİN ADRESİ</footer>
+    </header>
+
+</body>
+</html>
 
