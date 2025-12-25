@@ -1,49 +1,27 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YZC Dış Cephe | İzokobant Sistemleri</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --blue: #002d5b; --gold: #c5a059; }
-        body { font-family: 'Poppins', sans-serif; margin: 0; background: #000; color: white; overflow-x: hidden; }
-        
-        header { 
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            /* İzokobant Giydirilmiş Lüks Bina Görseli */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1554435493-93422e8220c8?w=1600'); 
-            background-size: cover; background-position: center; text-align: center;
-        }
+<style>
+    .wa-contact-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: #25d366;
+        color: white;
+        text-decoration: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-top: 30px;
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        transition: 0.3s;
+    }
+    .wa-contact-btn:hover {
+        transform: scale(1.05);
+        background: #1eb954;
+    }
+</style>
 
-        .logo { font-size: 5em; font-weight: 700; margin: 0; color: #fff; letter-spacing: 5px; }
-        .logo span { color: var(--gold); }
-        .sub { font-size: 1.2em; letter-spacing: 4px; margin-bottom: 50px; text-transform: uppercase; opacity: 0.9; }
+<a href="https://wa.me/905303458353" class="wa-contact-btn">
+    <span>💬 WhatsApp: 0530 345 83 53</span>
+</a>
 
-        .btn-container { display: flex; gap: 20px; width: 90%; max-width: 600px; flex-wrap: wrap; justify-content: center; }
-        
-        .cat-btn {
-            flex: 1; min-width: 250px; padding: 25px; border: 2px solid var(--gold); color: white;
-            text-decoration: none; font-weight: bold; text-transform: uppercase;
-            transition: 0.3s; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); text-align: center;
-        }
-
-        .cat-btn:hover { background: var(--gold); color: #000; transform: translateY(-5px); }
-        
-        .contact-info { position: absolute; bottom: 20px; font-size: 1.2em; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <header>
-        <h1 class="logo">YZC <span>DIŞ CEPHE</span></h1>
-        <p class="sub">İzokobant ve Kompozit Kaplama Sistemleri</p>
-        
-        <div class="btn-container">
-            <a href="katalog.html?tip=yanmaz" class="cat-btn">🔥 Yanmaz Ürünler (A1 Sınıfı)</a>
-            <a href="katalog.html?tip=yanar" class="cat-btn">❄️ Yanar Ürünler (Ekonomik)</a>
-        </div>
-
-        <div class="contact-info">İrtibat: 0530 345 83 53</div>
-    </header>
-</body>
-</html>
