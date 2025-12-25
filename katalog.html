@@ -3,55 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YZC Renk Kataloğu</title>
+    <title>YZC Renk Kataloğu | Müteahhit Özel Fiyat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 20px; text-align: center; }
-        h1 { color: #002d5b; text-transform: uppercase; margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
-        .color-card { background: white; padding: 10px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .swatch { height: 120px; border-radius: 5px; margin-bottom: 10px; border: 1px solid #ddd; }
-        .color-name { font-weight: bold; font-size: 0.9em; color: #333; }
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        body { font-family: 'Poppins', sans-serif; background: #f8f9fa; margin: 0; padding: 20px; text-align: center; }
+        .header-area { padding: 40px 20px; background: #002d5b; color: white; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .price-badge { background: #c5a059; color: #000; padding: 10px 20px; border-radius: 50px; font-weight: bold; display: inline-block; margin-top: 15px; font-size: 1.2em; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        .ai-status { color: #c5a059; font-weight: bold; margin-top: 15px; min-height: 24px; font-size: 1.1em; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+        .color-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #eee; }
+        .color-card:hover { transform: translateY(-5px); border-color: #c5a059; }
+        .swatch { height: 140px; border-radius: 8px; margin-bottom: 12px; border: 1px solid #eee; }
+        .color-name { font-weight: 600; color: #333; }
+        .wa-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 10px 20px rgba(37,211,102,0.3); z-index: 100; font-size: 1.1em; }
+        .back-link { display: block; margin-top: 40px; color: #888; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <h1 id="katalog-baslik">Ürün Kataloğu</h1>
-    <div class="grid" id="katalog-grid">
-        </div>
+    <div class="header-area">
+        <h1 id="baslik">Katalog Yükleniyor...</h1>
+        <div id="price-box" class="price-badge">Müteahhitlere Özel: 3.500₺ / m²</div>
+        <div id="ai-status" class="ai-status">Asistan Hazırlanıyor...</div>
+    </div>
 
-    <a href="index.html" style="display:inline-block; margin-top:40px; color:#666;">← Ana Sayfaya Dön</a>
-    <a href="https://wa.me/905303458353" class="wa-float">Fiyat Al: 0530 345 83 53</a>
+    <div class="grid" id="katalog-grid"></div>
+
+    <a href="index.html" class="back-link">← Ana Menüye Dön</a>
+    <a href="https://wa.me/905303458353?text=Müteahhit%20özel%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." class="wa-btn">WhatsApp Teklif Hattı</a>
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const tip = urlParams.get('tip');
         const grid = document.getElementById('katalog-grid');
-        const baslik = document.getElementById('katalog-baslik');
+        const baslik = document.getElementById('baslik');
+        const aiStatus = document.getElementById('ai-status');
 
-        // Ürün Renk Verileri
         const renkler = [
-            {isim: "Antrasit Gri", kod: "#383e42"},
-            {isim: "Gümüş Metalik", kod: "#c0c0c0"},
-            {isim: "Altın Meşe", kod: "#966929"},
-            {isim: "İnci Beyazı", kod: "#f5f5f5"},
-            {isim: "Bakır Bronz", kod: "#b87333"},
-            {isim: "Jet Siyah", kod: "#0a0a0a"},
-            {isim: "Modern Füme", kod: "#555555"},
-            {isim: "Krem Bej", kod: "#f5f5dc"}
+            {isim: "Antrasit Gri", kod: "#383e42"}, {isim: "Gümüş Metalik", kod: "#c0c0c0"},
+            {isim: "Altın Meşe", kod: "#966929"}, {isim: "İnci Beyazı", kod: "#f5f5f5"},
+            {isim: "Bakır Bronz", kod: "#b87333"}, {isim: "Jet Siyah", kod: "#0a0a0a"},
+            {isim: "Modern Füme", kod: "#555555"}, {isim: "Şampanya", kod: "#fad6a5"}
         ];
 
-        baslik.innerText = tip === 'yanmaz' ? "🔥 Yanmaz Ürün Kataloğu" : "❄️ Yanar Ürün Kataloğu";
-
         renkler.forEach(renk => {
-            const card = document.createElement('div');
-            card.className = 'color-card';
-            card.innerHTML = `
-                <div class="swatch" style="background-color: ${renk.kod}"></div>
-                <div class="color-name">${renk.isim}</div>
-            `;
-            grid.appendChild(card);
+            grid.innerHTML += `
+                <div class="color-card">
+                    <div class="swatch" style="background-color: ${renk.kod}"></div>
+                    <div class="color-name">${renk.isim}</div>
+                </div>`;
         });
+
+        function asistanAnlat() {
+            window.speechSynthesis.cancel();
+            const mesaj = new SpeechSynthesisUtterance();
+            mesaj.lang = 'tr-TR';
+            mesaj.rate = 1.1; // Hız bir tık daha yavaşlatıldı (daha profesyonel)
+
+            if (tip === 'yanmaz') {
+                baslik.innerText = "🔥 Yanmaz Ürün Kataloğu (A1)";
+                mesaj.text = "YZC Dış Cephe Yanmaz ürün kataloğuna hoş geldiniz. Bu ürünlerimiz A1 sınıfı yanmazlık sertifikasına sahip olup, projelerinizde can güvenliğini en üst seviyeye çıkarır. Müteahhitlerimize özel kampanya kapsamında metrekare birim fiyatımız üç bin beş yüz Türk Lirasıdır. Detaylar ve toplu alımlar için bize WhatsApp üzerinden ulaşabilirsiniz.";
+            } else {
+                baslik.innerText = "❄️ Yanar Ürün Kataloğu (Ekonomik)";
+                mesaj.text = "YZC Ekonomik seri ürün kataloğuna hoş geldiniz. Yüksek ısı yalıtımı ve estetik görünümü uygun maliyetle sunuyoruz. Müteahhitlerimize özel metrekare fiyatımız üç bin beş yüz liradan başlamaktadır. Zengin renk seçeneklerimizi aşağıdan inceleyebilirsiniz.";
+            }
+
+            mesaj.onstart = () => aiStatus.innerText = "🎙️ Asistan Fiyat Bilgisi Veriyor...";
+            mesaj.onend = () => aiStatus.innerText = "✅ Bilgilendirme Tamamlandı";
+            window.speechSynthesis.speak(mesaj);
+        }
+
+        // Sayfa yüklendikten 1 saniye sonra konuşmaya başla
+        window.onload = () => {
+            setTimeout(asistanAnlat, 1000);
+        };
     </script>
 </body>
 </html>
+
